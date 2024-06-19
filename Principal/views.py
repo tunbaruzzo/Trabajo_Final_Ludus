@@ -12,7 +12,7 @@ from .forms import formularioprograma
 # Create your views here.
 
 def inicio(req):
-        return render(req,"inicio.html", {"message": "¿TE ANIMAS A SUPERAR TUS LÍMITES?"})
+        return render(req,"inicio.html", {})
 
 def programa(req):
         return render(req,"programa.html", {})
@@ -28,6 +28,9 @@ def miembros(req):
 
 def consultas(req):
        return render(req,"consultas.html", {})
+
+def sobre_mi(req):
+       return render(req,"sobre_mi.html", {})
 
 def form_miembro(req):
        
@@ -113,3 +116,4 @@ def buscar(req):
        
        else:
               return render(req, "inicio.html", {"message": "UPS! Hubo un error, volvé a intentar por favor."})
+

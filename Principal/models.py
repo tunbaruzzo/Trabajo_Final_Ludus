@@ -22,9 +22,10 @@ class Instructores(models.Model):
     nombre= models.CharField(max_length=40)
     apellido= models.CharField(max_length=40)
     celular= models.IntegerField()
+    programas= models.ManyToManyField(Programa)
 
     def __str__(self) -> str:
-        return f'{self.nombre}, {self.apellido}'
+        return f'{self.nombre} {self.apellido} a cargo de {self.programas}'
 
 class Profesionales(models.Model):
     nombre= models.CharField(max_length=40)
@@ -41,7 +42,7 @@ class Miembros(models.Model):
     celular= models.IntegerField()
 
     def __str__(self) -> str:
-        return f'{self.nombre}, {self.apellido}'
+        return f'{self.nombre} {self.apellido}'
 
 class Consultas(models.Model):
     nombre= models.CharField(max_length=40)

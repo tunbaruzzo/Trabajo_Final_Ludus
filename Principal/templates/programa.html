@@ -1,26 +1,160 @@
 {% extends 'padre.html' %}
 
 {% block contenidoquecambia %}
+{% load static %}
 
-<section class="trainer_section layout_padding">
+ <!-- ***** Features Item Start ***** -->
+ <section class="section" id="features">
   <div class="container">
-    <div class="heading_container">
-      <h2>
-        CONOCE NUESTROS PROGRAMAS
-      </h2>
+      <div class="row">
+          <div class="col-lg-6 offset-lg-3">
+              <div class="section-heading">
+                  <h2>Elige tu <em>Programa</em></h2>
+                  <img src="{% static 'assets/images/line-dec.png' %}" alt="waves">
+                  <p>Podemos adecuar una rutina a vos, que sea dinámica y efectiva.</p>
+              </div>
+          </div>
+          <div class="col-lg-6">
+              <ul class="features-items">
+                  <li class="feature-item">
+                      <div class="left-icon">
+                          <img src="{% static 'assets/images/features-first-icon.png' %}" alt="First One">
+                      </div>
+                      <div class="right-content">
+                          <h4>Fuerza</h4>
+                          <p>Mejoran la capacidad atlética general, fomenta la superación personal.</p>
+                          <a href="#" class="text-button">Discover More</a>
+                      </div>
+                  </li>
+                  <li class="feature-item">
+                      <div class="left-icon">
+                          <img src="{% static 'assets/images/features-first-icon.png' %}" alt="second one">
+                      </div>
+                      <div class="right-content">
+                          <h4>Cardio</h4>
+                          <p>Aporte a la salud cardiovascular, queman calorías de manera eficiente y aumentan la energía y la resistencia.</p>
+                          <a href="#" class="text-button">Discover More</a>
+                      </div>
+                  </li>
+                  <li class="feature-item">
+                      <div class="left-icon">
+                          <img src="{% static 'assets/images/features-first-icon.png' %}" alt="second one">
+                      </div>
+                      <div class="right-content">
+                          <h4>Asistencia Profesional</h4>
+                          <p>Descubre el poder de una vida saludable y equilibrada.</p>
+                          <a href="#" class="text-button">Discover More</a>
+                      </div>
+              </ul>
+          </div>
+          <div class="col-lg-6">
+              <ul class="features-items">
+                  <li class="feature-item">
+                      <div class="left-icon">
+                          <img src="{% static 'assets/images/features-first-icon.png' %}" alt="fourth muscle">
+                      </div>
+                      <div class="right-content">
+                          <h4>Flexibilidad</h4>
+                          <p>Mejoramos juntos la elasticidad muscular, contribuyendo a un equilibrio físico y mental óptimo.</p>
+                          <a href="#" class="text-button">Discover More</a>
+                      </div>
+                  </li>
+                  <li class="feature-item">
+                      <div class="left-icon">
+                          <img src="{% static 'assets/images/features-first-icon.png' %}" alt="training fifth">
+                      </div>
+                      <div class="right-content">
+                          <h4>Movimiento</h4>
+                          <p>Ofrecemos clases dinámicas como Zumba y HIIT que te ayudarán a mantenerte activo y lleno de energía. </p>
+                          <a href="#" class="text-button">Discover More</a>
+                      </div>
+                  </li>
+                  <li class="feature-item">
+                      <div class="left-icon">
+                          <img src="{% static 'assets/images/features-first-icon.png' %}" alt="gym training">
+                      </div>
+                      <div class="right-content">
+                          <h4>Kickboxing</h4>
+                          <p>Excelente manera de mejorar tu condición física general, desarrolla fuerza y agilidad.</p>
+                          <a href="#" class="text-button">Discover More</a>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- ***** Features Item End ***** -->
+
+<section class="section" id="schedule">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading dark-bg">
+                    <h2>Horarios <em>de las clases</em></h2>
+                    <img src="{% static 'assets/images/line-dec.png' %}" alt="">
+                    <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="filters">
+                    <ul class="schedule-filter">
+                        <li class="active" data-tsfilter="monday">Lunes</li>
+                        <li data-tsfilter="tuesday">Martes</li>
+                        <li data-tsfilter="wednesday">Miercoles</li>
+                        <li data-tsfilter="thursday">Jueves</li>
+                        <li data-tsfilter="friday">Viernes</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10 offset-lg-1">
+                <div class="schedule-table filtering">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="day-time">Cardio</td>
+                                <td class="monday ts-item show" data-tsmeta="monday">10:00AM - 11:30AM  STEP</td>
+                                <td class="tuesday ts-item" data-tsmeta="tuesday">2:00PM - 3:30PM SPINNING</td>
+                                <td>Steve Rogers</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Fuerza</td>
+                                <td class="friday ts-item" data-tsmeta="friday">10:00AM - 11:30AM FUNCIONAL</td>
+                                <td class="thursday friday ts-item" data-tsmeta="thursday" data-tsmeta="friday">2:00PM - 3:30PM COMPLEMENTOS</td>
+                                <td>Erik Lehnsherr</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Movimiento</td>
+                                <td class="tuesday ts-item" data-tsmeta="tuesday">10:00AM - 11:30AM ZUMBA</td>
+                                <td class="monday ts-item show" data-tsmeta="monday">2:00PM - 3:30PM HIIT</td>
+                                <td>Gamora Zen Whoberi</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Flexibilidad</td>
+                                <td class="wednesday ts-item" data-tsmeta="wednesday">10:00AM - 11:30AM RESTAURATIVA</td>
+                                <td class="friday ts-item" data-tsmeta="friday">2:00PM - 3:30PM YOGA</td>
+                                <td>Carol Danvers</td>
+                            </tr>
+                            <tr>
+                                <td class="day-time">Kickboxing</td>
+                                <td class="thursday ts-item" data-tsmeta="thursday">10:00AM - 11:30AM PRINCIPIANTES</td>
+                                <td class="wednesday ts-item" data-tsmeta="wednesday">2:00PM - 3:30PM</td>
+                                <td>Natasha & Barton</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-lg-4 col-md-6 mx-auto">
-        <div class="box">
-          <div class="name">
-            <h5>
-              pagina de PROGRAMAS
-            </h5>
-          </div>
-          <div class="img-box">
-            <img src="images/t1.jpg" alt="">
-          </div>
-          
+</section>
+
+
+
+
+
 
 
 

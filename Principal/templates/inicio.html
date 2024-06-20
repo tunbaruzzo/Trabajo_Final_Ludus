@@ -41,12 +41,12 @@ https://templatemo.com/tm-548-training-studio
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="#top" class="active">INICIO</a></li>
-                            <li class="scroll-to-section"><a href="#features">Programas</a></li>
-                            <li class="scroll-to-section"><a href="#trainers">Equipo</a></li>
-                            <li class="scroll-to-section"><a href="#our-classes">Profesionales</a></li>                         
-                            <li class="scroll-to-section"><a href="#contact-us">Consultas</a></li> 
-                            <li class="scroll-to-section"><a href="#contact-us">Sobre Mi</a></li> 
+                            <li class="scroll-to-section"><a href="{% url 'inicio' %}" class="active">INICIO</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'programa' %}">Programas</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'instructores' %}">Instructores</a></li>
+                            <li class="scroll-to-section"><a href="{% url 'profesionales' %}">Profesionales</a></li>                         
+                            <li class="scroll-to-section"><a href="{% url 'consultas' %}">Consultas</a></li> 
+                            <li class="scroll-to-section"><a href="{% url 'sobre_mi' %}">Sobre Mi</a></li> 
                             <li class="main-button"><a href="#">Ingresa</a></li>
                         </ul>        
                         <a class='menu-trigger'>
@@ -61,7 +61,7 @@ https://templatemo.com/tm-548-training-studio
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Banner Area Start ***** -->
-    <div class="main-banner" id="top">
+    <div class="main-banner" id="{% url 'inicio' %}">
         <video autoplay muted loop id="bg-video">
             <source src="{% static 'assets/images/gym-video.mp4' %}" type="video/mp4" />
         </video>
@@ -79,7 +79,7 @@ https://templatemo.com/tm-548-training-studio
     <!-- ***** Main Banner Area End ***** -->
 
     <!-- ***** Features Item Start ***** -->
-    <section class="section" id="features">
+    <section class="section" id="{% url 'programa' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
@@ -180,7 +180,7 @@ https://templatemo.com/tm-548-training-studio
     <!-- ***** Call to Action End ***** -->
 
     <!-- ***** Testimonials Starts ***** -->
-    <section class="section" id="trainers">
+    <section class="section" id="{% url 'instructores' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
@@ -266,7 +266,7 @@ https://templatemo.com/tm-548-training-studio
     
 
      <!-- ***** Our Classes Start ***** -->
- <section class="section" id="our-classes">
+ <section class="section" id="{% url 'profesionales' %}">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
@@ -309,7 +309,7 @@ https://templatemo.com/tm-548-training-studio
     
     
     <!-- ***** Contact Us Area Starts ***** -->
-    <section class="section" id="contact-us">
+    <section class="section" id="{% url 'consultas' %}">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-xs-12">

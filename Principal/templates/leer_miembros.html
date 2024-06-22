@@ -14,6 +14,16 @@
                             <li>
                                 {{miembro}}
                             </li>
+                            <div>
+                                <form action="{% url 'eliminar_miembros' miembro.id %}" method="post" style="display: inline;">{% csrf_token%}
+                                    <button style="background-color: rgb(255, 102, 0); color: white; border: none; padding: 10px 20px; margin-right: 10px;" type="submit">Eliminar</button>
+                                </form>
+                                {% if miembro.id %}
+                                    <button style="background-color: rgb(255, 102, 0); color: white; border: none; padding: 10px 20px; margin-right: 10px;"> 
+                                        <a href="{% url 'editar_miembros' miembro.id %}"> Editar </a>
+                                    </button>
+                                {% endif %}    
+                            </div>
                         {% endfor %}
                     </ul>
                 </div>
@@ -21,6 +31,8 @@
         </div>
     </div>
 </section>
+
+
 
 
 {% endblock contenidoquecambia %}

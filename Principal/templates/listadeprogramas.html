@@ -1,0 +1,28 @@
+{% extends 'padre.html' %}
+{% block contenidoquecambia %}
+{% load static %}
+
+<section class="section" id="programas.3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2 style="font-size: 2.5em;">Lista de  <em>Clases</em></h2>
+                    <img src="{% static 'assets/images/line-dec.png' %}" alt="">
+                    <ul>
+                        {% for programa in Programas %}
+                            <li>
+                                {{Programa.nombre}}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock contenidoquecambia %}

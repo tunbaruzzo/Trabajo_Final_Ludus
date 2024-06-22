@@ -8,6 +8,9 @@ from .models import Consultas
 from .forms import formulario_miembro
 from .forms import formularioinstructor
 from .forms import formularioprograma
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
 
 # Create your views here.
 
@@ -31,6 +34,9 @@ def consultas(req):
 
 def sobre_mi(req):
        return render(req,"sobre_mi.html", {})
+
+def paginaerror(req):
+       return render(req, "paginaerror.html", {})
 
 def form_miembro(req):
        
@@ -103,21 +109,80 @@ def form_programa(req):
                      
         return render(req,"formularioprograma.html", {"MiFormulario_Programa": MiFormulario_Programa})
 
-def busqueda_programa(req):
-
-       return render(req,"busqueda_programa.html", {})
-
-def buscar(req):
-       if req.GET["nombre"]:
-              nombre = req.GET["nombre"]
-              nombre = Programa.objects.filter(nombre__icontains= nombre)
-
-              return render(req, "resultadobusquedaprograma.html", {"programa": nombre})
-       
-       else:
-              return render(req, "inicio.html", {"message": "UPS! Hubo un error, volvé a intentar por favor."})
 
 def leer_miembros(req):
        listamiembros = Miembros.objects.all()
 
        return render (req, "leer_miembros.html", {"miembros": listamiembros})
+
+def eliminar_miembros(req, id):
+       if req.method == 'POST':
+
+              miembro = Miembros.objects.get(id=id)
+              miembro.delete()
+
+              listamiembros = Miembros.objects.all()
+
+       return render (req, "leer_miembros.html", {"miembros": listamiembros})
+
+def editar_miembros(req, id):
+       if req.method == 'POST':
+
+              MiFormulario_Miembro= formulario_miembro(req.POST)
+
+              if MiFormulario_Miembro.is_valid():
+
+                     data= MiFormulario_Miembro.cleaned_data
+
+                     miembro = Miembros.objects.get(id=id)
+
+                     miembro.nombre= data["nombre"]
+                     miembro.apellido= data["apellido"]
+                     miembro.celular=data["celular"]
+
+                     miembro.save()
+
+                     return render(req,"miembros.html", {"message": "Datos actualizados exitosamente."})
+       
+              else:
+                     return render(req,"editar_miembros.html", {"message": "UPS! Datos inválidos, vuelve a intentar."})
+
+       else:
+              miembro = Miembros.objects.get(id=id)
+
+              MiFormulario_Miembro = formulario_miembro(initial={
+                     "nombre": miembro.nombre,
+                     "apellido": miembro.apellido,
+                     "celular": miembro.celular
+              })
+                     
+       return render(req,"editar_miembros.html", {"MiFormulario_Miembro": MiFormulario_Miembro, "id":miembro.id})
+
+
+class listadeprogramas(ListView):
+       model = Programa
+       template_name= 'listadeprogramas.html'
+       context_object_name= "Programas"
+
+class programadetail(DetailView):
+       model= Programa
+       template_name= 'programadetail.html'
+       context_object_name= "Programa"
+
+class programacreacion(CreateView):
+       model= Programa
+       template_name= 'programacreacion.html'
+       fields= ["nombre"]
+       success_url= "/Principal/"
+
+class programaeditar(UpdateView):
+       model= Programa
+       template_name= 'programaeditar.html'
+       fields=('__all__')
+       success_url= "/Principal/"
+       context_object_name= "programa"
+
+class programaeliminar(DeleteView):
+       model= Programa
+       template_name='programaeliminar.html'
+       success_url= "/Principal/"

@@ -12,7 +12,8 @@ from Principal.views import (
     form_instructor,
     form_programa,
     busqueda_programa,
-    buscar
+    buscar,
+    leer_miembros
 )
 
 urlpatterns =[
@@ -27,6 +28,7 @@ urlpatterns =[
     path('formularioinstructor/', form_instructor, name= 'formularioinstructor'),
     path('formularioprograma/', form_programa, name= 'formularioprograma'),
     path('busqueda_programa/', busqueda_programa, name= 'busquedaprograma'),
-    path('buscar/', buscar, name= 'buscar')
+    path('buscar/', buscar, name= 'buscar'),
+    path('leer_miembros/', leer_miembros, name= 'listamiembros'),
 
 ]

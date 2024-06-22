@@ -1,0 +1,26 @@
+{% extends 'padre.html' %}
+{% block contenidoquecambia %}
+{% load static %}
+
+<section class="section" id="our-origin">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2 style="font-size: 2.5em;">Lista de  <em>Miembros</em></h2>
+                    <img src="{% static 'assets/images/line-dec.png' %}" alt="">
+                    <ul>
+                        {% for miembro in miembros %}
+                            <li>
+                                {{miembro}}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock contenidoquecambia %}

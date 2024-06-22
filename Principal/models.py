@@ -19,13 +19,21 @@ class Programa(models.Model):
         return f'{self.nombre}, {self.categoria}'
 
 class Instructores(models.Model):
+    CATEGORIA_OPCIONES =[
+        ('Cardio', 'Cardio'),
+        ('Fuerza', 'Fuerza'),
+        ('Movimiento', 'Movimiento'),
+        ('Flexibilidad', 'Flexibilidad'),
+        ]
+
     nombre= models.CharField(max_length=40)
     apellido= models.CharField(max_length=40)
     celular= models.IntegerField()
-    programas= models.ManyToManyField(Programa)
+    categoria = models.CharField (max_length=40, choices= CATEGORIA_OPCIONES, default='A definir manualmente.')
 
     def __str__(self) -> str:
-        return f'{self.nombre} {self.apellido} a cargo de {self.programas}'
+            return f'{self.nombre} {self.apellido} a cargo de {self.categoria}'
+
 
 class Profesionales(models.Model):
     nombre= models.CharField(max_length=40)

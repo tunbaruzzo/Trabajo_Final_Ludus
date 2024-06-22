@@ -117,3 +117,7 @@ def buscar(req):
        else:
               return render(req, "inicio.html", {"message": "UPS! Hubo un error, volvé a intentar por favor."})
 
+def leer_miembros(req):
+       listamiembros = Miembros.objects.all()
+
+       return render (req, "leer_miembros.html", {"miembros": listamiembros})

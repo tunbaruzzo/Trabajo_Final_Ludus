@@ -12,3 +12,7 @@ Tambien el admin puede editar, eliminar y crear a los miembros, profesionales, i
 Desde ya quiero pedir disculpas al tutor encargado de la correccion, soy consciente de mis faltas en el programa, pero por motivos de 
 fuerza mayor no pude aprovechar el total del tiempo que nos dieron para cumplir con todas las consignas, asi que priorice las q consideraba
 mas importantes.
+
+Datos admin:
+user: ludusgym
+pass: 12345678

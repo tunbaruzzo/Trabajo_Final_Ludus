@@ -1,6 +1,25 @@
 {% extends 'padre.html' %}
-
 {% block contenidoquecambia %}
+{% load static %}
+
+<section class="section" id="instructor.2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="section-heading">
+                    <h2 style="font-size: 2.5em;">Ingresa tus <em>datos</em></h2>
+                    <img src="{% static 'assets/images/line-dec.png' %}" alt="">
+                    <form action="{% url 'formularioinstructor' %}" method="post">
+                        {% csrf_token %}
+                        {{ MiFormulario_Instructor.as_p }}
+                        <button type="submit" class="main-button scroll-to-section">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
 {% endblock contenidoquecambia %}

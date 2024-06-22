@@ -7,10 +7,17 @@ class formulario_miembro(forms.Form):
     celular= forms.IntegerField()
 
 class formularioinstructor(forms.Form):
-        
+    CATEGORIA_OPCIONES =[
+        ('Cardio', 'Cardio'),
+        ('Fuerza', 'Fuerza'),
+        ('Movimiento', 'Movimiento'),
+        ('Flexibilidad', 'Flexibilidad'),
+        ]
+            
     nombre = forms.CharField()
     apellido = forms.CharField()
     celular= forms.IntegerField()
+    categoria= forms.ChoiceField(choices=CATEGORIA_OPCIONES)    
 
 class formularioprograma(forms.Form):
     CATEGORIA_OPCIONES =[

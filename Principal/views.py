@@ -46,10 +46,10 @@ def form_miembro(req):
                      nuevo_miembro= Miembros(nombre= data['nombre'], apellido= data['apellido'], celular= data['celular'])
                      nuevo_miembro.save()
 
-                     return render(req,"inicio.html", {"message": "¡BIENVENID@ SOS MIEMBRO DE LUDUS!"})
+                     return render(req,"miembros.html", {"message": "¡BIENVENID@ SOS MIEMBRO DE LUDUS!"})
        
               else:
-                     return render(req,"inicio.html", {"message": "UPS! Datos inválidos, vuelve a intentar."})
+                     return render(req,"miembros.html", {"message": "UPS! Datos inválidos, vuelve a intentar."})
 
        else:
               MiFormulario_Miembro = formulario_miembro()
@@ -69,10 +69,10 @@ def form_instructor(req):
                      nuevo_miembro= Instructores(nombre= data['nombre'], apellido= data['apellido'], celular= data['celular'])
                      nuevo_miembro.save()
 
-                     return render(req,"inicio.html", {"message": "¡Nos pondremos en contacto sobre tu postulación!. El plazo es de 48hs hábiles."})
+                     return render(req,"instructores.html", {"message": "¡Nos pondremos en contacto sobre tu postulación! El plazo es de 48hs hábiles."})
        
               else:
-                     return render(req,"inicio.html", {"message": "UPS! Datos inválidos, vuelve a intentar."})
+                     return render(req,"instructores.html", {"message": "UPS! Algo pasó, comunicate con nosotros."})
 
        else:
               MiFormulario_Instructor = formularioinstructor()
@@ -93,10 +93,10 @@ def form_programa(req):
                      nuevo_programa= Programa(nombre= data['nombre'], duracion= data['duracion'], capacidad= data['capacidad'])
                      nuevo_programa.save()
 
-                     return render(req,"inicio.html", {"message": "¡Nos pondremos en contacto sobre tu propuesta!. El plazo es de 48hs hábiles."})
+                     return render(req,"programa.html", {"message": "¡Nos pondremos en contacto sobre tu propuesta! El plazo es de 48hs hábiles."})
        
               else:
-                     return render(req,"inicio.html", {"message": "UPS! Datos inválidos, vuelve a intentar."})
+                     return render(req,"programa.html", {"message": "UPS! Datos inválidos, vuelve a intentar."})
 
         else:
               MiFormulario_Programa = formularioprograma()

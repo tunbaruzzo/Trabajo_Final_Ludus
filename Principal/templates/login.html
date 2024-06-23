@@ -2,17 +2,17 @@
 {% block contenidoquecambia %}
 {% load static %}
 
-<section class="section" id="programa.2">
+<section class="section" id="miembros.3">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="section-heading">
-                    <h2 style="font-size: 2.5em;">Ingresa la información del <em>programa</em></h2>
+                    <h2 style="font-size: 2.5em;">inicia <em>sesión</em></h2>
                     <img src="{% static 'assets/images/line-dec.png' %}" alt="">
-                    <form action="{% url 'formularioprograma' %}" method="post">
+                    <form action="{% url 'login' %}" method="post">
                         {% csrf_token %}
-                        {{ MiFormulario_Programa.as_p }}
-                        <button type="submit" class="main-button scroll-to-section">Enviar</button>
+                        {{ MiFormulario.as_p }}
+                        <button type="submit" class="main-button scroll-to-section">Iniciar</button>
                     </form>
                 </div>
             </div>

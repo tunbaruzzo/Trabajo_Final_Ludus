@@ -11,6 +11,8 @@ from .forms import formularioprograma
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 
 # Create your views here.
 
@@ -30,7 +32,7 @@ def miembros(req):
        return render(req,"miembros.html", {})
 
 def consultas(req):
-       return render(req,"consultas.html", {})
+       return render(req,"paginaerror.html", {})
 
 def sobre_mi(req):
        return render(req,"sobre_mi.html", {})
@@ -186,3 +188,58 @@ class programaeliminar(DeleteView):
        model= Programa
        template_name='programaeliminar.html'
        success_url= "/Principal/"
+
+def login_ludus(req):
+              
+       if req.method == 'POST':
+
+              MiFormulario= AuthenticationForm(req, data=req.POST)
+
+              if MiFormulario.is_valid():
+
+                     data= MiFormulario.cleaned_data
+
+                     usuario = data ["username"]
+                     psw= data["password"]
+
+                     user= authenticate(username= usuario, password= psw)
+
+                     if user:
+                            login(req, user)
+                            return render(req,"miembros.html", {"message": "Hola! list@ para ver tu plan de entrenamiento de hoy?"})
+                     else:
+                            return render(req,"miembros.html", {"message": "EPA! Datos incorrectos."})
+
+                     
+       
+              else:
+                     return render(req,"inicio.html", {"message": "UPS! Algo pasó, comunicate con nosotros."})
+
+       else:
+              MiFormulario = AuthenticationForm()
+                     
+       return render(req,"login.html", {"MiFormulario": MiFormulario})
+
+def registro_ludus(req):
+       if req.method == 'POST':
+
+              MiFormulario= UserCreationForm(req.POST)
+
+              if MiFormulario.is_valid():
+
+                     data= MiFormulario.cleaned_data
+
+                     usuario = data ["username"]
+                     MiFormulario.save()
+                    
+                     
+                     return render(req,"miembros.html", {"message": "Felicitaciones! Comencemos tu rutina!"})
+              
+              else:
+                     return render(req,"miembros.html", {"message": "EPA! Datos inválidos."})
+
+
+       else:
+              MiFormulario = UserCreationForm()
+                     
+       return render(req,"registro.html", {"MiFormulario": MiFormulario})       
